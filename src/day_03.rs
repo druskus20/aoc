@@ -91,4 +91,11 @@ The locations you'd check in the above example are marked here with O where ther
 In this example, traversing the map using this slope would cause you to encounter 7 trees.
 
 Starting at the top-left corner of your map and following a slope of right 3 and down 1, how many trees would you encounter?
- */
+
+--- Part Two ---
+The Elves in accounting are thankful for your help; one of them even offers you a starfish coin they had left over from a past vacation. They offer you a second one if you can find three numbers in your expense report that meet the same criteria.
+
+Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. Multiplying them together produces the answer, 241861950.
+
+In your expense report, what is the product of the three entries that sum to 2020?
+*/
