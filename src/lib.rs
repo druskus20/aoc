@@ -1,3 +1,4 @@
+#![feature(str_split_once)]
 extern crate aoc_runner;
 
 #[macro_use]
