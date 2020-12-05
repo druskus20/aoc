@@ -32,6 +32,8 @@
   <component name="ChangeListManager">
     <list default="true" id="125c4f56-5133-459b-98f0-1cd0b4dd2d83" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/day_04.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/day_04.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +70,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo.fmt">
+  <component name="RunManager" selected="Cargo.aoc">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package aoc-2020 --bin aoc-2020" />
@@ -83,7 +85,7 @@
     </configuration>
     <configuration name="aoc" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="aoc -d 3" />
+      <option name="command" value="aoc " />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -117,16 +119,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Cargo.Run" />
-      <item itemvalue="Cargo.input" />
       <item itemvalue="Cargo.aoc" />
       <item itemvalue="Cargo.fmt" />
+      <item itemvalue="Cargo.input" />
     </list>
   </component>
   <component name="RustProjectSettings">
@@ -147,7 +144,13 @@
       <workItem from="1606939354296" duration="5590000" />
       <workItem from="1606949129950" duration="5577000" />
       <workItem from="1607002657429" duration="476000" />
-      <workItem from="1607004673787" duration="6657000" />
+      <workItem from="1607004673787" duration="7319000" />
+      <workItem from="1607088777960" duration="125000" />
+      <workItem from="1607098944640" duration="637000" />
+      <workItem from="1607107034693" duration="286000" />
+      <workItem from="1607112901976" duration="511000" />
+      <workItem from="1607113437893" duration="2194000" />
+      <workItem from="1607122160716" duration="6466000" />
     </task>
     <servers />
   </component>
@@ -164,38 +167,38 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="158" width="1092" height="882" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607007077165">
+    <state x="414" y="158" width="1092" height="882" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607113731876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="158" width="1092" height="882" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607007077165" />
+    <state x="414" y="158" width="1092" height="882" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607113731876" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606918733010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606918733010" />
-    <state width="1877" height="141" key="GridCell.Tab.0.bottom" timestamp="1607010406516">
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom" timestamp="1607129619933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="141" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607010406516" />
-    <state width="1877" height="141" key="GridCell.Tab.0.center" timestamp="1607010406516">
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607129619933" />
+    <state width="1877" height="124" key="GridCell.Tab.0.center" timestamp="1607129619932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="141" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607010406516" />
-    <state width="1877" height="141" key="GridCell.Tab.0.left" timestamp="1607010406516">
+    <state width="1877" height="124" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607129619932" />
+    <state width="1877" height="124" key="GridCell.Tab.0.left" timestamp="1607129619932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="141" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607010406516" />
-    <state width="1877" height="141" key="GridCell.Tab.0.right" timestamp="1607010406516">
+    <state width="1877" height="124" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607129619932" />
+    <state width="1877" height="124" key="GridCell.Tab.0.right" timestamp="1607129619932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="141" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607010406516" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607011034093">
+    <state width="1877" height="124" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607129619932" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607125178993">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607011034093" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1606943196391">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607125178993" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1607124732437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606943196391" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607124732437" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606941089823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
