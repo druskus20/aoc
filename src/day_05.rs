@@ -1,7 +1,7 @@
 use anyhow::*;
-use std::ops::RangeInclusive;
 use std::collections::HashSet;
 use std::iter::FromIterator;
+use std::ops::RangeInclusive;
 
 #[aoc_generator(day5)]
 pub fn input_gen(input: &str) -> Vec<String> {
@@ -50,8 +50,11 @@ pub fn find_row_col(code: &String) -> (usize, usize) {
     (*row_range.start(), *col_range.end())
 }
 
-pub fn  data_to_numeric(data: &Vec<String>) -> Vec<usize> {
-    data.iter().map(find_row_col).map(|p| p.0 * 8 + p.1).collect::<Vec<_>>()
+pub fn data_to_numeric(data: &Vec<String>) -> Vec<usize> {
+    data.iter()
+        .map(find_row_col)
+        .map(|p| p.0 * 8 + p.1)
+        .collect::<Vec<_>>()
 }
 
 #[aoc(day5, part1)]
@@ -59,6 +62,7 @@ pub fn solve_part1(data: &Vec<String>) -> usize {
     *data_to_numeric(data).iter().max().unwrap()
 }
 
+// Orders a vector starting from the center (1 2 3 4 5 6) -> (3 4 2 5 1 6)
 pub fn merge_seats(data: &Vec<usize>) -> Vec<usize> {
     let half = ((data.len() / 2) as f32).round() as usize;
 
@@ -71,29 +75,31 @@ pub fn merge_seats(data: &Vec<usize>) -> Vec<usize> {
     lower_data
         .iter()
         .zip(higher_data.iter())
-        .for_each(|(low_val, high_val)| merged_vector.append(&mut vec!(*low_val, *high_val))); // This line is the worst
+        .for_each(|(low_val, high_val)| merged_vector.append(&mut vec![*low_val, *high_val])); // This line is the worst
 
     merged_vector
 }
 
 #[aoc(day5, part2)]
 pub fn solve_part2(data: &Vec<String>) -> usize {
-
     let num_data = data_to_numeric(data);
 
     // Create an array of all possible seats within the range
-    let possible_seats = (*num_data.iter().min().unwrap()..*num_data.iter().max().unwrap()).collect::<Vec<usize>>();
+    let possible_seats =
+        (*num_data.iter().min().unwrap()..*num_data.iter().max().unwrap()).collect::<Vec<usize>>();
 
     // Create a hash of the present seats
-    let num_data_hash : HashSet<usize> = HashSet::from_iter(num_data);
+    let num_data_hash: HashSet<usize> = HashSet::from_iter(num_data);
 
     // Merge the order of the possible seats
     let merged_possible_seats = merge_seats(&possible_seats);
 
     // Find the first missing seat (starting from the middle of the plane)
-    *merged_possible_seats.iter().find(|v| !num_data_hash.contains(v)).unwrap()
+    *merged_possible_seats
+        .iter()
+        .find(|v| !num_data_hash.contains(v))
+        .unwrap()
 }
-
 
 /*
 --- Day 5: Binary Boarding ---
