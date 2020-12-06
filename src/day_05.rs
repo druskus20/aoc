@@ -71,7 +71,7 @@ pub fn merge_seats(data: &Vec<usize>) -> Vec<usize> {
     lower_data
         .iter()
         .zip(higher_data.iter())
-        .for_each(|(low_val, high_val)| merged_vector.append(&mut vec!(*low_val, *high_val)));
+        .for_each(|(low_val, high_val)| merged_vector.append(&mut vec!(*low_val, *high_val))); // This line is the worst
 
     merged_vector
 }
