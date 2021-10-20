@@ -81,7 +81,7 @@ pub fn parse_input(input: &str) -> Vec<Instruction> {
 // Returns (false, <acc>) if there program finished naturally or (true, <acc>) if it encountered a loop
 pub fn run_until_loop(data: &Vec<Instruction>) -> Result<(bool, i32)> {
     let mut acc_total: i32 = 0;
-    let mut visited_instr = Vec::<usize>::new();
+    let mut visited_instr = HashSet::<usize>::new();
     let mut instr_i = 0;
     let mut loop_found = false;
 
@@ -90,7 +90,7 @@ pub fn run_until_loop(data: &Vec<Instruction>) -> Result<(bool, i32)> {
             loop_found = true;
             break;
         }
-        visited_instr.push(instr_i);
+        visited_instr.insert(instr_i);
         instr_i = instr.run(instr_i, &mut acc_total);
     }
 
