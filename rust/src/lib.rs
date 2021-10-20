@@ -1,4 +1,3 @@
-#![feature(str_split_once)]
 extern crate aoc_runner;
 
 #[macro_use]
@@ -13,5 +12,6 @@ mod day_04;
 mod day_05;
 mod day_06;
 mod day_07;
+mod day_08;
 
 aoc_lib! { year = 2020 }

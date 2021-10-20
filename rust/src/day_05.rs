@@ -40,10 +40,10 @@ pub fn find_row_col(code: &String) -> (usize, usize) {
     let mut row_range = 0..=127;
     let mut col_range = 0..=7;
 
-    &code[..7]
+    let _ = &code[..7]
         .chars()
         .for_each(|c| row_range = get_half_rows(c, &row_range).unwrap());
-    &code[7..]
+    let _ = &code[7..]
         .chars()
         .for_each(|c| col_range = get_half_cols(c, &col_range).unwrap());
 
