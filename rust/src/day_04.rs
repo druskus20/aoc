@@ -1,6 +1,7 @@
 use itertools::{join, Itertools};
 use regex::*;
 
+#[allow(dead_code)]
 #[derive(Debug)]
 pub struct Data {
     byr: Option<String>,

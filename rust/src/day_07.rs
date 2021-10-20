@@ -90,11 +90,8 @@ pub fn get_num_bags_that_contain(target: String, rules: &NumRules) -> u32 {
         .map(|(_, sub_bags)| {
             sub_bags
                 .iter()
-                .map(|(name, num)| num * (get_num_bags_that_contain(name.clone(), rules)+1))
+                .map(|(name, num)| num * (get_num_bags_that_contain(name.clone(), rules) + 1))
                 .sum::<u32>()
         })
         .sum()
 }
-
-
-
