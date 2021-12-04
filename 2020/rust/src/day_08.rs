@@ -3,6 +3,8 @@
 //  set of numbers twice. The second part is pretty similar to the first one and can follow the same
 //  principle.
 
+
+// For part 2, it would have been better to flip only the instructions visited in part 1
 use anyhow::*;
 use std::collections::HashSet;
 
@@ -38,13 +40,6 @@ impl Instruction {
         }
     }
 
-    fn to_string(&self) -> String {
-        match self {
-            Instruction::Acc(x) => format!("acc {}", x),
-            Instruction::Jmp(x) => format!("jmp {}", x),
-            Instruction::Nop(x) => format!("nop {}", x),
-        }
-    }
 
     fn run(&self, curr_i: usize, acc: &mut i32) -> usize {
         let mut next_i = curr_i;
@@ -113,7 +108,7 @@ pub fn flip_jmp_or_nop(data: &Vec<Instruction>, offset: usize) -> Result<(usize,
     let index = data[offset..]
         .iter()
         .enumerate()
-        .find(|(i, x)| x.is_jmp_or_nop())
+        .find(|(_, x)| x.is_jmp_or_nop())
         .unwrap()
         .0;
 
