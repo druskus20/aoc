@@ -1,5 +1,8 @@
 // Advent of Code 2021 - Day 3
-//
+
+// A better aproach would be substituding the numbers in the string all at once
+// since its not required to do it one by one.
+
 use colored::Colorize;
 use std::str::FromStr;
 
@@ -21,6 +24,7 @@ pub struct BingoTable {
     nums: Vec<Vec<i32>>,
     marked_nums: Vec<Vec<bool>>,
     dims: Dims,
+    completed: bool,
 }
 
 impl BingoTable {
@@ -36,12 +40,13 @@ impl BingoTable {
             }
             println!();
         }
+        println!("completed: {}", self.completed);
         println!("\n");
     }
 
     fn check_marked_columns(&self) -> bool {
-        let mut res = true;
         for i in 0..self.dims.cols {
+            let mut res = true;
             for j in 0..self.dims.rows {
                 res = res && self.marked_nums[j][i];
             }
@@ -107,6 +112,10 @@ impl BingoTable {
         }
         return sum;
     }
+
+    fn set_complete(&mut self) {
+        self.completed = true;
+    }
 }
 
 impl FromStr for BingoTable {
@@ -134,6 +143,7 @@ impl FromStr for BingoTable {
             nums,
             dims,
             marked_nums,
+            completed: false,
         })
     }
 }
@@ -160,13 +170,11 @@ pub fn input_gen(input: &str) -> InputType {
 pub fn solve_part1((order, tables): &InputType) -> Result<OutputType> {
     let mut tables = tables.clone();
     for num in order {
-        dbg!(num);
         for table in &mut tables {
             table.mark_num(*num)?;
-            table.pretty_print();
             let score = table.check_win();
             if score {
-                dbg!(table.sum_of_unmarkeds());
+                table.set_complete();
                 return Ok(table.sum_of_unmarkeds() * num);
             }
         }
@@ -176,7 +184,24 @@ pub fn solve_part1((order, tables): &InputType) -> Result<OutputType> {
 
 #[aoc(day4, part2)]
 pub fn solve_part2((order, tables): &InputType) -> Result<OutputType> {
-    todo!()
+    let mut tables = tables.clone();
+    let mut last_completed_table_score = 0;
+
+    for num in order {
+        for table in &mut tables {
+            if table.completed {
+                continue;
+            }
+            table.mark_num(*num)?;
+            let score = table.check_win();
+            if score {
+                table.set_complete();
+                last_completed_table_score = table.sum_of_unmarkeds() * num;
+            }
+        }
+    }
+
+    Ok(last_completed_table_score)
 }
 
 //#[cfg(test)]
