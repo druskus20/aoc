@@ -1,4 +1,4 @@
-// Advent of Code 2021 - Day 3
+// Advent of Code 2021 - Day 4
 
 // A better aproach would be substituding the numbers in the string all at once
 // since its not required to do it one by one.
@@ -28,6 +28,7 @@ pub struct BingoTable {
 }
 
 impl BingoTable {
+    #[allow(dead_code)]
     fn pretty_print(&self) {
         for i in 0..self.dims.rows {
             for j in 0..self.dims.cols {
