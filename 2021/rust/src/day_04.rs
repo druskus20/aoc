@@ -53,8 +53,8 @@ impl BingoTable {
     }
 
     fn check_marked_rows(&self) -> bool {
-        let mut res = true;
         for i in 0..self.dims.rows {
+            let mut res = true;
             for j in 0..self.dims.cols {
                 res = res && self.marked_nums[i][j];
             }
