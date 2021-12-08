@@ -1,5 +1,4 @@
-use core::slice;
-use std::{collections::HashSet, iter::FromIterator, slice::Windows};
+use std::{collections::HashSet, iter::FromIterator};
 
 use anyhow::*;
 
@@ -73,10 +72,9 @@ pub fn check_sum(data: &[i64], target: i64) -> Option<(i64, i64)> {
             return None;
         }
     }
-    if (sum == target) {
+    if sum == target {
         Some((first, last))
-    }
-    else {
+    } else {
         None
     }
 }
@@ -94,9 +92,11 @@ pub fn solve_2(data: &Vec<i64>) -> Result<i64> {
     if let Some(i) = number_from_part1_index {
         data.remove(i);
     }
-    
+
     // BUG: This is not at all what I should do
-    let res = data.windows(data.len()-1).find_map(|win| check_sum(win, number_from_part1));
+    let res = data
+        .windows(data.len() - 1)
+        .find_map(|win| check_sum(win, number_from_part1));
     dbg!(res);
     let res = res.unwrap();
     Ok(res.0 + res.1)
