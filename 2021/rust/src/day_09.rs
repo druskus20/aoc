@@ -18,6 +18,7 @@ impl Deref for HeightMap {
 }
 
 impl HeightMap {
+    #[allow(dead_code)]
     fn pretty_print(&self) {
         self.iter().for_each(|c| {
             c.iter().for_each(|x| print!("{}", x));
@@ -66,13 +67,12 @@ pub fn input_gen(input: &str) -> InputType {
 
 #[aoc(day9, part1)]
 pub fn solve_part1(data: &InputType) -> Result<OutputType> {
-    data.pretty_print();
+    //data.pretty_print();
     let low_points = data.search_lowpoints();
-
     Ok(low_points.iter().map(|(i, j)| data[*j][*i] + 1).sum())
 }
 
 #[aoc(day9, part2)]
-pub fn solve_part2(data: &InputType) -> Result<OutputType> {
+pub fn solve_part2(_data: &InputType) -> Result<OutputType> {
     todo!()
 }
