@@ -1,5 +1,8 @@
 // Advent of Code 2021 - Day 10
 
+// Might have gone slightly over board with the Chunk methods lol
+// Basically solved using a Stack like a decent human being
+
 use std::{collections::HashMap, convert::TryFrom};
 
 use anyhow::{bail, Result};
