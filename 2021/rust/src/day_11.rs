@@ -54,9 +54,6 @@ fn apply_step(octos: &mut InputType) -> i32 {
         }
     }
 
-    pretty_print_octos(octos);
-    println!();
-
     let mut total_flashes = 0;
     for j in 0..octos.len() {
         for i in 0..octos[j].len() {
@@ -87,17 +84,4 @@ fn flash(octos: &mut InputType, j: usize, i: usize) -> i32 {
         }
     }
     total_flashes
-}
-
-fn pretty_print_octos(octos: &InputType) {
-    for octo in octos.iter() {
-        for i in octo.iter() {
-            if *i > 9 {
-                print!("F");
-            } else {
-                print!("{}", i);
-            }
-        }
-        println!();
-    }
 }
