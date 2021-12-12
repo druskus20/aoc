@@ -93,7 +93,7 @@ enum Chunk {
 impl TryFrom<char> for Chunk {
     type Error = anyhow::Error;
 
-    fn try_from(c: char) -> Result<Self, Self::Error> {
+    fn try_from(c: char) -> Result<Self> {
         match c {
             '(' => Ok(Chunk::OpeningParenthesis),
             '[' => Ok(Chunk::OpeningBracket),
