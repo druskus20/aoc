@@ -11,6 +11,8 @@ pub mod prelude {
 }
 
 mod day_01;
+mod day_02;
+
 mod utils;
 
 aoc_lib! { year = 2025 }
