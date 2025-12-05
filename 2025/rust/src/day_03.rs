@@ -65,7 +65,7 @@ pub fn solve_part2(data: &Input) -> Result<u64> {
 
     // Iterate over banks
     for bank in data {
-        acc += find_twelve_highest(&bank);
+        acc += find_twelve_highest(bank);
     }
 
     Ok(acc)
