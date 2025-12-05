@@ -1,13 +1,13 @@
 /// Advent of Code 2025 - Day 3
 use crate::{prelude::*, utils};
 
-const USE_MOCK: bool = true;
+const USE_MOCK: bool = false;
 const MOCK_DATA: &str = indoc! {"
+    987654321111111
+    811111111111119
+    234234234234278
     818181911112111
 "};
-//    987654321111111
-//    811111111111119
-//    234234234234278
 
 type Input = Vec<Vec<u64>>;
 
@@ -63,44 +63,9 @@ pub fn solve_part2(data: &Input) -> Result<u64> {
     // we always want to take the highest number possible in the left most position
     let mut acc = 0;
 
+    // Iterate over banks
     for bank in data {
-        // We always take the first twelve
-        let mut seq = bank[0..12].to_vec();
-
-        let len = bank.len();
-        for i in 0..len {
-            let next = bank[i];
-
-            let len_left = len - i; // 3
-            dbg!(len_left);
-
-            // Compare next with each number in the sequence from left to right
-            // if next is greater than any number, swap all the following numbers with the
-            // contiguous numbers from the bank
-            //
-            // IMPORTANT This calculation is wrong. We should not only count the last few numbers,
-            // we should start by 0 and go up to 12 - len_left
-            eprintln!("Range: {}..{}", 0, len_left);
-            for j in 0..u32::min(12, len_left as u32) as usize {
-                let n = seq[j];
-
-                eprintln!("Comparing next {next} with seq[{j}] = {n}, len_left = {len_left}");
-                // swap numbers and fill the rest with the contiguous
-                if next > n {
-                    dbg!(format!("swapping {n} with {next} at pos {j}"));
-                    assert!(next == bank[i]);
-                    dbg!(format!("j = {j}"));
-                    for k in j..12 {
-                        seq[k] = bank[i + (k)];
-                    }
-                    break; // important
-                }
-            }
-        }
-
-        let seq = seq_to_u64(&seq);
-        dbg!(seq);
-        acc += seq;
+        acc += find_twelve_highest(&bank);
     }
 
     Ok(acc)
@@ -110,9 +75,25 @@ fn seq_to_u64(seq: &[u64]) -> u64 {
     seq.iter().fold(0, |acc, &d| acc * 10 + d)
 }
 
-fn seq_to_string(seq: &[u64]) -> String {
-    seq.iter()
-        .map(|d| d.to_string())
-        .collect::<Vec<_>>()
-        .join("")
+fn find_twelve_highest(bank: &[u64]) -> u64 {
+    let k = 12;
+    let mut stack = Vec::with_capacity(k);
+
+    for (i, &d) in bank.iter().enumerate() {
+        let remaining = bank.len() - i;
+
+        while let Some(&last) = stack.last() {
+            if last < d && stack.len() - 1 + remaining >= k {
+                stack.pop();
+            } else {
+                break;
+            }
+        }
+
+        if stack.len() < k {
+            stack.push(d);
+        }
+    }
+
+    seq_to_u64(&stack)
 }
