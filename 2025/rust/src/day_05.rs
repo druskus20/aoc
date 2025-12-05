@@ -3,17 +3,17 @@ use crate::{prelude::*, utils};
 
 const USE_MOCK: bool = false;
 const MOCK_DATA: &str = indoc! {"
-3-5
-10-14
-16-20
-12-18
-
-1
-5
-8
-11
-17
-32
+    3-5
+    10-14
+    16-20
+    12-18
+    
+    1
+    5
+    8
+    11
+    17
+    32
 "};
 
 pub struct Data {
