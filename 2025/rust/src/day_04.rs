@@ -1,4 +1,4 @@
-/// Advent of Code 2025 - Day 3
+/// Advent of Code 2025 - Day 4
 use crate::{prelude::*, utils};
 
 const USE_MOCK: bool = false;
@@ -42,7 +42,7 @@ impl std::ops::IndexMut<usize> for Matrix {
 impl Matrix {
     fn deep_clone(&self) -> Matrix {
         Matrix {
-            data: self.data.clone(), // Box<[bool]> implements Clone
+            data: self.data.clone(),
             cols: self.cols,
             rows: self.rows,
         }
