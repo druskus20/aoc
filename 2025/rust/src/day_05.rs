@@ -191,7 +191,7 @@ pub fn input_gen(input: &str) -> Input {
 }
 
 #[aoc(day5, part1)]
-pub fn _solve_part1(data: &Input) -> Result<u64> {
+pub fn solve_part1(data: &Input) -> Result<u64> {
     let mut root: Option<Rc<RefCell<Node>>> = None;
 
     // Construct the tere
